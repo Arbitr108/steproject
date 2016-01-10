@@ -44,7 +44,6 @@ class Tree extends AbstractTree
 
 	public function attachNode(Node $node, Node $parent)
 	{
-		var_dump($node->getParent());
 		$newParent = $this->getNode($parent->getName());
 		if($node->hasParent()){
 			$node->getParent()->forgetChild($node);
