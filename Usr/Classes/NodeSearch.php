@@ -12,13 +12,15 @@ namespace PG\Classes;
 trait NodeSearch
 {
 	public function &search($search, $children){
-
-		foreach($children as $key => $childNode){
-			if($key == $search || ($search instanceof Node && $search->getName() == $key)){
-				return $children[$childNode->getName()];
-			}
-			if(!empty($childNode->getChildren())){
-				return $this->search($search, $childNode->getChildren());
+		if($search instanceof Node)
+			$search = $search->getName();
+		if(array_key_exists($search, $children))
+			return $children[$search];
+		elseif(!empty($children)) {
+			foreach($children as $key => $childNode){
+				if(!empty( $childNode->getChildren() )){
+					return $this->search($search, $childNode->getChildren());
+				}
 			}
 		}
 		return false;

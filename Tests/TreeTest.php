@@ -64,33 +64,9 @@ class TreeTest extends PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('maidan', $this->_tree->getNode('kiev')->getChildren());
 
 		// 9. удалить узел kiev
-//		$this->_tree->deleteNode($this->_tree->getNode('kiev'));
-		var_dump($this->_tree->getChildren());
+		$this->_tree->deleteNode($this->_tree->getNode('kiev'));
+		$this->assertNotContains('kiev', $this->_tree->getNode('country')->getChildren());
+
+		print_r($this->_tree->export());
 	}
-
-	public function testExportChildren(){
-//		var_dump($this->_tree->export());
-//		$this->_tree->export();
-	}
-
-	/**
-
-	// 2. создать в нем узел kiev
-	$tree->createNode(new Node('kiev'), $tree->getNode('country'));
-	// 3. в узле kiev создать узел kremlin
-	$tree->createNode(new Node('kremlin'), $tree->getNode('kiev'));
-	// 4. в узле kremlin создать узел house
-	$tree->createNode(new Node('house'), $tree->getNode('kremlin'));
-	// 5. в узле kremlin создать узел tower
-	$tree->createNode(new Node('tower'), $tree->getNode('kremlin'));
-	// 6. в корневом узле создать узел moskow
-	$tree->createNode(new Node('moskow'), $tree->getNode('country'));
-	// 7. сделать узел kremlin дочерним узлом у moskow
-	$tree->attachNode($tree->getNode('kremlin'), $tree>getNode('moskow'));
-	// 8. в узле kiev создать узел maidan
-	$tree->createNode(new Node('maidan'), $tree->getNode('kiev'));
-	// 9. удалить узел kiev
-	$tree->deleteNode($tree->getNode('kiev'));
-	 */
-
 }

@@ -51,7 +51,7 @@ class Node
 	}
 
 	public function setParent(&$parent){
-		$this->_parent = &$parent;
+		$this->_parent = $parent;
 	}
 
 	public function getParent(){
@@ -60,5 +60,9 @@ class Node
 
 	public function hasParent(){
 		return !is_null($this->_parent);
+	}
+	public function __toString()
+	{
+		return $this->getName();
 	}
 }

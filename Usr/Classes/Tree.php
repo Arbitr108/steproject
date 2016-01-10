@@ -37,8 +37,9 @@ class Tree extends AbstractTree
 	public function deleteNode(Node $node)
 	{
 		$result  = $this->search($node, $this->_root);
-		if($result)
-			unset($result);
+		if($result){
+			$result->getParent()->forgetChild($node);
+		}
 		return $this;
 	}
 
@@ -61,9 +62,12 @@ class Tree extends AbstractTree
 		return $node;
 	}
 
+	/**
+	 * @return array
+	 * TODO: use array_walk_recursive() to format the output
+	 */
 	public function export()
 	{
-		echo '<pre/>';
-		var_export($this->_root);
+		return $this->_root;
 	}
 }
