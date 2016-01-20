@@ -67,6 +67,6 @@ class TreeTest extends PHPUnit_Framework_TestCase
 		$this->_tree->deleteNode($this->_tree->getNode('kiev'));
 		$this->assertNotContains('kiev', $this->_tree->getNode('country')->getChildren());
 
-		print_r($this->_tree->export());
+//		print_r($this->_tree->export());
 	}
 }

@@ -61,6 +61,7 @@ class Node
 	public function hasParent(){
 		return !is_null($this->_parent);
 	}
+
 	public function __toString()
 	{
 		return $this->getName();
